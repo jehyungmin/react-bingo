@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-bingo/static/css/main.9043c523.chunk.css",
+    "main.js": "/react-bingo/static/js/main.8c81d046.chunk.js",
+    "main.js.map": "/react-bingo/static/js/main.8c81d046.chunk.js.map",
+    "runtime~main.js": "/react-bingo/static/js/runtime~main.67983e0f.js",
+    "runtime~main.js.map": "/react-bingo/static/js/runtime~main.67983e0f.js.map",
+    "static/css/2.41a373cd.chunk.css": "/react-bingo/static/css/2.41a373cd.chunk.css",
+    "static/js/2.d303edc9.chunk.js": "/react-bingo/static/js/2.d303edc9.chunk.js",
+    "static/js/2.d303edc9.chunk.js.map": "/react-bingo/static/js/2.d303edc9.chunk.js.map",
+    "index.html": "/react-bingo/index.html",
+    "precache-manifest.032fd1553b097d6b4c3f46a64574ac73.js": "/react-bingo/precache-manifest.032fd1553b097d6b4c3f46a64574ac73.js",
+    "service-worker.js": "/react-bingo/service-worker.js",
+    "static/css/2.41a373cd.chunk.css.map": "/react-bingo/static/css/2.41a373cd.chunk.css.map",
+    "static/css/main.9043c523.chunk.css.map": "/react-bingo/static/css/main.9043c523.chunk.css.map"
+  }
+}
