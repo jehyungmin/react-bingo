@@ -28,7 +28,7 @@ class Cells extends Component {
   constructor(props){
     super(props)
     this.state={
-      name: props.name
+      name: props.name,
     }
   }
   state = {
@@ -55,10 +55,12 @@ class Cells extends Component {
         if(p1_TwoArray[i][j] === num){
           p1[i][j] = 1;
           p1_count = this.isBingo(p1,1);
+          console.log("p1_count;;;;;;;: " + p1_count)
         }
         if(p2_TwoArray[i][j] === num){
           p2[i][j] = 1;
           p2_count = this.isBingo(p2,1);
+          console.log("p2_count;;;;;;;: " + p2_count)
         }
       }
     } 
@@ -68,14 +70,44 @@ class Cells extends Component {
     console.log(`1p: ${p1_count} , 2p: ${p2_count}`)
     if(p1_count>4 || p2_count>4){
       if(p1_count >=5 && p2_count < 5){
-        window.alert("P1가 빙고를 완성했습니다.")
-      } //1p win
+        p1_count = 0;
+        p2_count = 0;
+        p1 = new Array(5);
+          for (let i = 0; i < 5; i++) {
+            p1[i] = new Array(5);
+        }
+        p2 = new Array(5);
+        for (let i = 0; i < 5; i++) {
+          p2[i] = new Array(5);
+        }
+        window.alert("P1가 빙고를 완성했습니다.");
+      }
       else if(p2_count >= 5 && p1_count < 5){
-        window.alert("P2가 빙고를 완성했습니다.")
-      }//2p win
+        p1_count = 0;
+        p2_count = 0;
+        p1 = new Array(5);
+        for (let i = 0; i < 5; i++) {
+          p1[i] = new Array(5);
+        }
+        p2 = new Array(5);
+          for (let i = 0; i < 5; i++) {
+            p2[i] = new Array(5);
+        }
+        window.alert("P2가 빙고를 완성했습니다.");
+      }
       else{
-        window.alert("무승부 입니다.")
-      }//무승부
+        p1_count = 0;
+        p2_count = 0;
+        p1 = new Array(5);
+        for (let i = 0; i < 5; i++) {
+          p1[i] = new Array(5);
+        }
+        p2 = new Array(5);
+        for (let i = 0; i < 5; i++) {
+          p2[i] = new Array(5);
+        }
+        window.alert("무승부 입니다.");
+      }
     }
   }
 
@@ -88,7 +120,7 @@ class Cells extends Component {
   isActive(isSelected,cell){  
     if(this.props.isPlaying){
       for(let i=0;i<isSelected.length;i++){
-        if(isSelected[i] === cell) {        
+        if (Array.from(new Set(isSelected))[i] === cell) {        
           return true;
         }
       }
@@ -102,20 +134,19 @@ class Cells extends Component {
   isBingo(array,g){
     let countB=0;
       for(let i=0;i<5;i++){
-          if(array[0][i]===g&&array[1][i]===g&&array[2][i]===g&&array[3][i]===g&&array[4][i]===g){ //세로
+          if(array[0][i]===g&&array[1][i]===g&&array[2][i]===g&&array[3][i]===g&&array[4][i]===g){ 
             countB++;
-            console.log('countB : ' + countB)
           }
       }
       for(let i=0;i<5;i++){
-          if(array[i][0]===g&&array[i][1]===g&&array[i][2]===g&&array[i][3]===g&&array[i][4]===g){ //가로
+          if(array[i][0]===g&&array[i][1]===g&&array[i][2]===g&&array[i][3]===g&&array[i][4]===g){ 
             countB++;
           }
       }
-      if(array[0][0]===g&&array[1][1]===g&&array[2][2]===g&&array[3][3]===g&&array[4][4]===g){ //대각선1
+      if(array[0][0]===g&&array[1][1]===g&&array[2][2]===g&&array[3][3]===g&&array[4][4]===g){ 
         countB++;
       }
-      if(array[0][4]===g&&array[1][3]===g&&array[2][2]===g&&array[3][1]===g&&array[4][0]===g){ //대각선2
+      if(array[0][4]===g&&array[1][3]===g&&array[2][2]===g&&array[3][1]===g&&array[4][0]===g){ 
         countB++;
       }
     return countB;
@@ -123,7 +154,7 @@ class Cells extends Component {
 
   render() {
     let { isSelected, array } = this.props;
-    console.log('isSelected : ' + isSelected)
+    console.log('isSelected : ' + Array.from(new Set(isSelected)));
     const { size } = this.state;
     p1_TwoArray = utils.TwoArray(this.props.p1_roaded);
     p2_TwoArray = utils.TwoArray(this.props.p2_roaded);

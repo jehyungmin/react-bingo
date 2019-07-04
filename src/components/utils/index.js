@@ -28,6 +28,5 @@ export const TwoArray = (array) => {
 		    array.slice(i * maxLength, (i + 1) * maxLength),
 	    ];
     }
-  console.log('twoDimensionArray : ' + twoDimensionArray)
     return twoDimensionArray;
 }
